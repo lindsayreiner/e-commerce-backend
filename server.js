@@ -1,16 +1,23 @@
+require('dotenv').config();
 const express = require('express');
 const routes = require('./routes');
-// import sequelize connection
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('ecommerce_db', 'root', '12345678', {
-    host: 'localhost',
-    dialect: 'mysql',
-    port: 3306
-});
+//do I need this here since its also already there in connection?
+const sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PW,
+    {
+        host: 'localhost',
+        dialect: 'mysql',
+        port: 3306
+    });
 
-sequelize.sync().then(() => {
-    console.log('db synced');
+const force = JSON.parse(process.env.DB_FORCE_SYNC);
+
+sequelize.sync({ force }).then(() => {
+    console.log('synced!');
 })
 
 const app = express();
