@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-    Category.update(
+    Tag.update(
         {
             tag_name: req.body.tag_name,
         },
