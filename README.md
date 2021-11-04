@@ -18,7 +18,7 @@ This is a fully functional backend for an e-commerce websit. This includes a dat
 
 # Links
 
-App walkthrough video:
+App walkthrough video: https://watch.screencastify.com/v/kzJpyuVzm0AfMEEAHaNT
 
 # Installation
 
